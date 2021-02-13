@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
     <title>CoCreate Datatable</title>
 
   <!-- CoCreate UI -->
   <!--<link rel="stylesheet" href="https://cdn.cocreate.app/CoCreate.min.css" type="text/css" />-->
-  <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreateUI.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://server.cocreate.app/css/CoCreate.min.css" type="text/css" />
 
   <!-- Jquery -->
   <script
@@ -33,7 +34,7 @@
   </style>
 <body>
     <!-- Navbar -->
-    <div data-main_content_id="content" class="nav width-100-percernt display-flex align-items-center bg-light-gray height-50px" data-scroll_effect="hide-nav" data-scroll_position="50">
+    <div data-main_content_id="content" class="nav width:100% display:flex align-items-center bg-light-gray height:50px" data-scroll_effect="hide-nav" data-scroll_position="50">
 
       <!-- Menu Icon Animations -->
       <a class="nav-toggle menu_icon--Vdots" data-toggle_sidenav="menuL">
@@ -45,18 +46,18 @@
       </a>
         
         <!-- Horizontal Scroll Nav/Tabs -->
-        <ul class="cocreate-scroll display-inline-flex direction-rtl font-size-20px align-items-center list-style-type-none">
+        <ul class="cocreate-scroll display:inline-flex direction:rtl font-size:20px align-items-center list-style-type-none">
     			
     			<!-- Window Controls -->
-    			<li><a class="btn-wnd-close"><i class="fas fa-times">
+    			<li><a class="btn-modal-close"><i class="fas fa-times">
     			  </i></a></li>
-    			<li><a class="btn-wnd-maximize"><i data-transform_to="far fa-window-restore" class="far fa-window-maximize">
+    			<li><a class="btn-modal-maximize"><i data-transform_to="far fa-window-restore" class="far fa-window-maximize">
     			  </i></a></li>
-    			<li><a class="btn-wnd-minimize"><i class="far fa-window-minimize">
+    			<li><a class="btn-modal-minimize"><i class="far fa-window-minimize">
     			  </i></a></li>
     			
     			<!-- fullscreen toogle and icon transform-->
-    			<li><a class="fs-toggle"><i data-transform_to="fas fa-compress" class="fas fa-expand">
+    			<li><a data-fullscreen><i data-transform_to="fas fa-compress" class="fas fa-expand">
     			  </i></a></li>
     			
     			<!-- Render Builder -->
@@ -98,7 +99,7 @@
       </div>
       
       <!-- Main Content with Viewport/Boundaries for windows -->  
-		  <div class="cocreate-container" id="customVPhere" data-main_content_id="content">
+		  <div id="modal-viewport" data-main_content_id="content">
   			  <div class="btn-group">
     				<ul data-table_id="example1" class="colvis-menu cocreate-dt-menu"></ul>
 			    </div>
@@ -115,7 +116,7 @@
                  	  data-filter_name="name" 
                  	  data-value_type="string"
                  	  data-filter_operator=""
-                 	  placeholder="Module Name" class="width-100-percent"></th>
+                 	  placeholder="Module Name" class="width:100%"></th>
       					<th>Id</th>
     				  </tr>
     			 	</thead>
@@ -124,7 +125,7 @@
   				  <!-- Datatable Template -->  
   				  <tr class="template">
     					<td class="selectable">
-    					  <div class="minwidth-200">
+    					  <div class="min-width:200px">
       					  <div class="icon-wrapper">
       						  <span data-document_id="" name="icon"></span>
       					  </div>
@@ -198,7 +199,7 @@
    <!--     		  <div class="resizeHandler"></div>-->
    <!--     	  </div>-->
             	
-  	  <a target="modal" href="render.html" data-pass_collection="modules" data-pass_document_id="" data-pass_prefix="form_" data-pass_to="render" data-modal_ajax="false" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954" data-modal_x="" data-modal_y="" class="position-fixed bottom-15px right-15px bg-blue grow-hover round" data-pass_id="render">
+  	  <a target="modal" href="render.html" data-pass_collection="modules" data-pass_document_id="" data-pass_prefix="form_" data-pass_to="render" data-modal_ajax="false" data-modal_width="320px" data-modal_height="100%" data-modal_color="#229954" data-modal_x="" data-modal_y="" class="position:fixed bottom:15px right:15px bg-blue grow-hover round" data-pass_id="render">
   	    <i class="fa fa-plus"></i>
   		</a>
 
@@ -220,7 +221,7 @@
     <!--CoCreateJS-->
   <script src="https://server.cocreate.app/js/CoCreate.min.js"></script>
   <!--CoCreate Plugins-->
-  <script src="https://server.cocreate.app/CoCreate-plugins/CoCreate-modal/CoCreate-modal.js"></script>
+  <script src="https://server.cocreate.app/CoCreate-plugins/CoCreate-modal/src/CoCreate-modal.js"></script>
   <script src="https://server.cocreate.app/js/CoCreate-datatables.js"></script>
 
 </body>

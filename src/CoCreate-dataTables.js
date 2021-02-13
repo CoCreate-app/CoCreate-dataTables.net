@@ -51,7 +51,7 @@ function initTables(container) {
       continue;
     }
     
-    let filter = g_cocreateFilter.setFilter(table, "data-table_id", "datatable");
+    let filter = CoCreate.filter.setFilter(table, "data-table_id", "datatable");
     if (!filter) continue;
     
     var tableId = table.id;
@@ -60,10 +60,10 @@ function initTables(container) {
       continue;
     }
     
-    if (CoCreateUtils.getInitialized(table)) {
+    if (CoCreateInit.getInitialized(table)) {
 			continue;
 		}
-		CoCreateUtils.setInitialized(table)
+		CoCreateInit.setInitialized(table)
 
     var availableOrders = getAvailableOrders(tableId);
     
@@ -156,7 +156,7 @@ function initTables(container) {
 function fetchTableData(dtObj) {
   if (!dtObj.availableMore || dtObj.state == 'loading') return;
   
-  g_cocreateFilter.fetchData(dtObj.filter);
+  CoCreate.filter.fetchData(dtObj.filter);
   dtObj.state = 'loading';
 }
 
@@ -164,7 +164,7 @@ function fetchedTableData(data) {
   console.log(data);
   var tableId = data['element'];
   
-  var dtObj = g_cocreateFilter.getObjectByFilterId(dtOBJs, tableId);
+  var dtObj = CoCreate.filter.getObjectByFilterId(dtOBJs, tableId);
   
   if (!dtObj) return;
   const result_data = data['data'];
@@ -671,7 +671,7 @@ function deleteSelectedRows(dtObj) {
   
   for (let i=0; i<length; i++) {
     selectedIds.push(selectedData[i]['_id']);
-    CoCreate.deleteDocument({
+    CoCreate.crud.deleteDocument({
       'collection': dtObj.collection,
       'document_id': selectedData[i]['_id'],
       'metadata': '',
@@ -688,3 +688,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 CoCreateInit.register('CoCreateDatatable', window, initTables);
 
+// CoCreate.observer.init({ 
+// 	name: 'CoCreateDatatable', 
+// 	observe: ['subtree', 'childList'],
+// 	include: '[data-table_id]', 
+// 	callback: function(mutation) {
+// 		initTables(mutation.target)
+// 	}
+// })
